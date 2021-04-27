@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import api from "../utils/api.util";
 
-export class signup extends Component {
+class Signup extends Component {
   state = {
     username: "",
-    passwordHash: "",
+    password: "",
     fullname: "",
     email: "",
     imageURL: "",
@@ -14,6 +15,26 @@ export class signup extends Component {
       [name]: value,
     });
   };
+  handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const { username, password, fullname, email } = this.state;
+    try {
+      await api.signup({
+        username,
+        password,
+        fullname,
+        email,
+      });
+      this.props.history.push("/login");
+    } catch (error) {
+      console.log(error);
+      this.setState({
+        message: "Error signup ",
+      });
+    }
+  };
+
   render() {
     return (
       <div>
@@ -34,16 +55,24 @@ export class signup extends Component {
               onChange={this.handleInput}
             ></input>
             <label>Email</label>
-            <input type="text" name="email" value={this.state.email} onChange={this.handleInput}></input>
+            <input
+              type="text"
+              name="email"
+              value={this.state.email}
+              onChange={this.handleInput}
+            ></input>
             <label>Image</label>
             <input></input>
             <label>Password</label>
             <input
               type="password"
-              name="passwordHash"
-              value={this.state.passwordHash}
+              name="password"
+              value={this.state.password}
               onChange={this.handleInput}
             ></input>
+            <button type="submit" onClick={this.handleSubmit}>
+              Signup
+            </button>
           </form>
         </div>
       </div>
@@ -51,4 +80,4 @@ export class signup extends Component {
   }
 }
 
-export default signup;
+export default Signup;
