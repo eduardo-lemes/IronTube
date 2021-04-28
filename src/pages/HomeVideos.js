@@ -4,7 +4,7 @@ export class HomeVideos extends Component {
     render() {
         return (
             <div>
-                HOME
+                HOME video
             </div>
         )
     }
