@@ -10,11 +10,19 @@ class Navbar extends Component {
           <div>
             <Link to="/"><span style={{color:"white" }}>IronTube</span></Link>
           </div>
-          <div style={styleDiv}>
-            <Link to={"/upload"}><Button name="Upload Video"></Button></Link>
+          {this.props.loggedInUser ? 
+          (<Link to={"/upload"}><Button name="Upload Video"></Button></Link> )
+          : 
+          (<div style={styleDiv}>
             <Link to={"/signup"}><Button name="signup"></Button></Link>
             <Link to={"/login"}><Button name="login"></Button></Link>
-          </div>
+            
+          </div>) }
+         
+            
+            
+            
+          
         </nav>
       </>
     );
