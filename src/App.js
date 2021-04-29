@@ -4,6 +4,7 @@ import UploadVideo from "./pages/UploadVideo";
 import { Component } from "react";
 import Signup from "./pages/signup";
 import Login from "./pages/login";
+import VideoDetail from "./pages/videoDetail";
 
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
@@ -27,7 +28,7 @@ class App extends Component {
         <Route path="/signup" component={Signup} />
         <Route path="/login"  render={(props) => <Login {...props} handleLogin={this.handleLogin} />}/>
         <Route path="/upload" component={UploadVideo} />
-        
+        <Route path="/view/:videoId" component={VideoDetail} />
       </Switch>
     </>
     )
