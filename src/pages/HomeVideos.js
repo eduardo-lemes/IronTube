@@ -1,13 +1,23 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import api from "../utils/api.util";
 
-export class HomeVideos extends Component {
-    render() {
-        return (
-            <div>
-                HOME video
-            </div>
-        )
-    }
+ class HomeVideos extends Component {
+  state = {
+    videos: [],
+  };
+
+  componentDidMount = async () => {
+    const videos = await api.getAllVideos();
+    this.setState({
+      videos: videos,
+    });
+  };
+  render() {
+    return <div>HOME video
+    {this.state.videos.map(videos => {
+        return <h2>{videos.title}</h2>
+    })}</div>;
+  }
 }
 
-export default HomeVideos
+export default HomeVideos;
