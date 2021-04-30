@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import api from "../utils/api.util";
 
- class HomeVideos extends Component {
+class HomeVideos extends Component {
   state = {
     videos: [],
   };
@@ -13,10 +14,14 @@ import api from "../utils/api.util";
     });
   };
   render() {
-    return <div>HOME video
-    {this.state.videos.map(videos => {
-        return <h2>{videos.title}</h2>
-    })}</div>;
+    return (
+      <div>
+        HOME video
+        {this.state.videos.map((video) => {
+          return <Link to={`/view/${video._id}`}> {video.title}</Link>;
+        })}
+      </div>
+    );
   }
 }
 
