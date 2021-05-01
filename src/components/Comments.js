@@ -55,7 +55,7 @@ class Comments extends Component {
             return (
               <li>
                 {comments.comment}
-                <ul>{comments.user}</ul>
+                <ul>{comments.username}</ul>
               </li>
             );
           })}
