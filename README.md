@@ -4,7 +4,7 @@ Each user will be able to upload a video and make comments about it<br></br>
 
 Upload video - Progress<br></br>
 Post Comments - Done<br></br>
-Home - 
+Home - Done
 <br></br>
 
 ## 🛠️ Construído com
