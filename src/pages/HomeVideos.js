@@ -19,7 +19,6 @@ class HomeVideos extends Component {
   render() {
     return (
       <div>
-        HOME video
         <Header loggedInUser={this.state.loggedInUser}></Header>
         <div className="app_page">
           <Sidebar  />

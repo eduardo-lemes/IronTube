@@ -22,6 +22,7 @@ function Header() {
                     className="header_logo"
                     src={headerLogo}
                     alt="youtube-logo"
+                    href="/"
                 />
                 </Link> 
             </div>
