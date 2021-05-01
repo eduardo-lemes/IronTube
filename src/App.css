@@ -1,3 +1,7 @@
+.app_page {
+  display: flex;
+}
+
 .App {
   text-align: center;
 }
