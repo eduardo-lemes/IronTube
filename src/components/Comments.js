@@ -4,6 +4,8 @@ import api from "../utils/api.util";
 class Comments extends Component {
   state = {
     comments: [],
+    comment: '',
+    user: ''
   };
 
   loadComments = async () => {
@@ -11,7 +13,7 @@ class Comments extends Component {
 
     this.setState({
       comments: comments,
-      user: "",
+      user: localStorage.getItem('userId'),
     });
   };
   componentDidMount = () => {
@@ -26,7 +28,7 @@ class Comments extends Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     const newComment = await api.createComment({
-      comments: this.state.comments,
+      comment: this.state.comment, video: this.props.videoId, user: this.state.user
     });
     this.setState({
       comment: "",

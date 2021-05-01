@@ -28,6 +28,8 @@ class Api {
     try {
       const { data } = await this.api.post("/auth/login", payload);
       const { token } = data;
+      localStorage.setItem("userId", data.payload.id);
+      localStorage.setItem("username", data.payload.username);
       localStorage.setItem("token", token);
     } catch (error) {
       console.error(error);
@@ -64,15 +66,18 @@ class Api {
 
   getVideoComments = async (videoId) => {
     try {
+      console.log('entrou', videoId);
       const { data } = await this.api.get(`/comments/list/${videoId}`);
+      console.log(data);
       return data;
     } catch (error) {
       throw new Error(error);
     }
   };
   createComment = async (payload) => {
+      console.log(payload)
     try {
-      const { data } = await this.api.post("/saveComment", payload);
+      const { data } = await this.api.post("/comments/saveComment", payload);
       return data;
     } catch (error) {
       throw new Error(error);
