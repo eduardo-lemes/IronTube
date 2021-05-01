@@ -1,4 +1,3 @@
-import Navbar from "./components/Navbar";
 import HomeVideos from "./pages/HomeVideos";
 import UploadVideo from "./pages/UploadVideo";
 import { Component } from "react";
@@ -21,14 +20,19 @@ class App extends Component {
   render() {
     return(
       <>
-      <Navbar loggedInUser={this.state.loggedInUser}></Navbar>
-      <Switch>
-        <Route exact path="/" component={HomeVideos} />
+        <Switch>
+        {/* <Route path="/search/:searchTerm">
+          <div className="app_page">
+            <Sidebar />
+          </div>
+        </Route> */}
         <Route path="/signup" component={Signup} />
         <Route path="/login"  render={(props) => <Login {...props} handleLogin={this.handleLogin} />}/>
+        <Route exact path="/" component={HomeVideos} />
         <Route path="/upload" component={UploadVideo} />
         <Route path="/view/:videoId" component={VideoDetail} />
-      </Switch>
+        </Switch>
+     
     </>
     )
     
