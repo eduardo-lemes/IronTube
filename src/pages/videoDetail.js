@@ -4,7 +4,7 @@ import Comments from "../components/Comments";
 
 class VideoDetail extends Component {
   state = {
-    video: {},
+    video: {_id: '608a035352c19c0015246037'},
   };
 
   componentDidMount = async () => {
