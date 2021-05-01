@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import api from "../utils/api.util";
 import Comments from "../components/Comments";
+import Header from '../components/Header/Header';
+import Sidebar from '../components/Sidebar/Sidebar';
+
+
 
 class VideoDetail extends Component {
   state = {
@@ -20,9 +24,11 @@ class VideoDetail extends Component {
   render() {
     return (
       <div>
-        details video
-        <h3> {this.state.video.title}</h3>
-        <video
+        <Header loggedInUser={this.state.loggedInUser}></Header>
+
+        <div className="app_page">
+          <Sidebar  />
+          <video
           type="video/mp4"
           src={this.state.video.videoURL}
           className="video-stream"
@@ -31,11 +37,16 @@ class VideoDetail extends Component {
           height="500"
           controls
         >
+          <h3> {this.state.video.description}</h3>
+        <div>
+          <Comments videoId={this.state.video._id} />
+        </div>
           {/* <source type="video/mp4" src={this.state.video.videoURL} /> */}
         </video>
         <h3> {this.state.video.description}</h3>
         <div>
           <Comments videoId={this.state.video._id} />
+        </div>
         </div>
       </div>
     );
