@@ -2,10 +2,9 @@ import Navbar from "./components/Navbar";
 import HomeVideos from "./pages/HomeVideos";
 import UploadVideo from "./pages/UploadVideo";
 import { Component } from "react";
-import Signup from "./pages/signup";
-import Login from "./pages/login";
+import Signup from "./pages/signup/signup";
+import Login from "./pages/login/login";
 import VideoDetail from "./pages/videoDetail";
-
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
 
