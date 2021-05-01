@@ -11,7 +11,7 @@ Home - Done
 React, AXIOS
 
 ## ✒️ Autores
-Anderson Lucas <br></br>
+Anderson Lucas de Paiva <br></br>
 Eduardo Lemes<br></br>
 
 ## 🎁 Expressões de gratidão
